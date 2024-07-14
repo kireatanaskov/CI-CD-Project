@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-deploy
+  namespace: django-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: django-application
+  template:
+    metadata:
+      labels:
+        app: django-application
+    spec:
+      containers:
+        - image: kireatanaskov/kiii-project:latest
+          imagePullPolicy: Always
+          name: django-app-container
+          envFrom:
+            - configMapRef:
+                name: django-cm
+          ports:
+            - containerPort: 8000
