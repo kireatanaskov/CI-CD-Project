@@ -21,4 +21,4 @@ spec:
             - configMapRef:
                 name: django-cm
           ports:
-            - containerPort: 8000
+            - containerPort: 80
