@@ -4,8 +4,7 @@ metadata:
   name: ingress
   namespace: django-app
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/rule-type: PathPrefix
 spec:
   rules:
     - host: localhost
